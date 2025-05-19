@@ -2,6 +2,8 @@
 import Layout from "../layouts/base.astro";
 import { actions } from "astro:actions";
 
+export const prerender = false;
+
 const { data } = await Astro.callAction(actions.task.taskList, { page: 0 });
 ---
 

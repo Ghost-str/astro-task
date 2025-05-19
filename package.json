@@ -11,6 +11,7 @@
     "pretty": "prettier --write ."
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^9.2.1",
     "@astrojs/svelte": "^7.0.13",
     "@picocss/pico": "^2.1.1",
