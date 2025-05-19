@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "generated"
+  module   = "esm"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum TaskPriority {
+  low
+  medium
+  hight
+}
+
+enum TaskStatus {
+  active
+  complete
+}
+
+model Task {
+  id String @id @default(uuid())
+  title String
+  description String?
+  priority TaskPriority @default(medium)
+  status TaskStatus @default(active)
+  due  DateTime?
+}

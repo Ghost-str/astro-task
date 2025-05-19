@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/base.astro";
+import { actions } from "astro:actions";
+
+const { data } = await Astro.callAction(actions.task.taskList, { page: 0 });
+---
+
+<Layout>
+  <a href="/create-task" role="button"> Создать задачу</a>
+  {
+    data &&
+      data.map(({ id, priority, title }) => {
+        return (
+          <article>
+            id: {id} <br />
+            title: {title} <br />
+            priority: {priority} <br />
+          </article>
+        );
+      })
+  }
+</Layout>
